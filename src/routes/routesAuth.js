@@ -23,15 +23,15 @@ authRouter.post('/signup', async (req, res, next) => {
 });
 
 authRouter.post('/signin', basicAuth, (req, res, next) => {
-  try {
+ try {
     const user = {
       user: req.user,
       token: req.user.token
     };
     res.status(200).json(user);
-  } catch (e) {
-    throw new Error(e.message)
-  }
+ } catch (e) {
+throw new Error(e.message)
+ }
 });
 
 authRouter.get('/users', bearerAuth, permissions('delete'), async (req, res, next) => {
