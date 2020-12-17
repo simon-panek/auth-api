@@ -8,12 +8,18 @@
 
 function handle404(req, res, next) {
 
-  const errorObject = {
-    status: 404,
-    message: 'Sorry, we could not find what you were looking for'
-  }
+  try {
+    const errorObject = {
+      status: 404,
+      message: 'Sorry, we could not find what you were looking for'
+    }
 
-  res.status(404).json(errorObject);
+    res.setHeader('Content-Type', 'application/json'); //from 500Auth.js
+
+    res.status(404).json(errorObject);
+  }  catch (e) {
+    throw new Error(e.message)
+  }
 }
 
 module.exports = handle404;
