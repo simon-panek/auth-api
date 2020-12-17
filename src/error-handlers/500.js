@@ -16,5 +16,8 @@ module.exports = function (err, req, res, next) {
     status: 500,
     message: error
   }
+
+  res.setHeader('Content-Type', 'application/json'); //from 500Auth.js
+
   res.status(500).json(errorObject);
 }

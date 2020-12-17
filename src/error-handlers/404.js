@@ -13,6 +13,8 @@ function handle404(req, res, next) {
     message: 'Sorry, we could not find what you were looking for'
   }
 
+  res.setHeader('Content-Type', 'application/json'); //from 500Auth.js
+
   res.status(404).json(errorObject);
 }
 
