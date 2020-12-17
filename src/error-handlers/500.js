@@ -10,14 +10,19 @@
 module.exports = function (err, req, res, next) {
 
   // Sometimes, errors come in as an object, others as a string
-  const error = err.message ? err.message : err;
+  try {
 
-  const errorObject = {
-    status: 500,
-    message: error
+    const error = err.message ? err.message : err;
+    
+    const errorObject = {
+      status: 500,
+      message: error
+    }
+    
+    res.setHeader('Content-Type', 'application/json'); //from 500Auth.js
+    
+    res.status(500).json(errorObject);
+  } catch (e) {
+    throw new Error(e.message)
   }
-
-  res.setHeader('Content-Type', 'application/json'); //from 500Auth.js
-
-  res.status(500).json(errorObject);
 }
