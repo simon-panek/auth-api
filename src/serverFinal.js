@@ -36,6 +36,6 @@ module.exports = {
   server: app,
   start: port => {
     if (!port) { throw new Error("Missing Port"); }
-    app.listen(port, () => console.log(`Now server customer # ${port}`));
+    app.listen(port, () => console.log(`Now serving customer # ${port}`));
   },
 };
