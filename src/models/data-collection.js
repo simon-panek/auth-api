@@ -20,7 +20,9 @@ class DataCollection {
   }
 
   create(record) {
+    console.log('record inside collection ', record);
     let newRecord = new this.model(record);
+    console.log('newRecord', newRecord);
     return newRecord.save();
   }
 
