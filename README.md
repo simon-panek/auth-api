@@ -4,7 +4,7 @@
 
 ### Author: Simon Panek
 
-#### Contributors and Collaborators: Mariko, Ricardo, Nathan, Stacy
+#### Contributors and Collaborators: Mariko, Ricardo, Nathan, Stacy, Matt
 
 ### Links and Resources
 
@@ -43,7 +43,6 @@
 #### Security
 
 - This app uses JWT to authorize access to the authenticated routes
-- JSON Web Tokens are set to expire 15 minutes after creation
 
 #### Tests
 
