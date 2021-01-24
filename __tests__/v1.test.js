@@ -76,6 +76,7 @@ describe('Auth Router', () => {
 
     describe(`${userType} users`, () => {
 
+      if(userType !== 'admin'){
       it('1. can create one', async () => {
 
         const response = await mockRequest.post('/signup').send(users[userType]);
@@ -87,6 +88,7 @@ describe('Auth Router', () => {
         expect(userObject.user.username).toEqual(users[userType].username)
 
       });
+      };
 
       it('2. can signin with basic', async () => {
 

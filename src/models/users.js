@@ -14,10 +14,11 @@ const users = new mongoose.Schema({
 // Adds a virtual field to the schema. We can see it, but it never persists
 // So, on every user object ... this.token is now readable!
 users.virtual('token').get(function () {
+  console.log('this.capabilities ', this.capabilities);
   let tokenObject = {
     username: this.username,
     role: this.role,
-    token: this.token,
+    // token: this.token,
     capabilities: this.capabilities
   }
   return jwt.sign(tokenObject, process.env.SECRET)
@@ -50,6 +51,7 @@ users.statics.authenticateBasic = async function (username, password) {
 users.statics.authenticateWithToken = async function (token) {
   try {
     const parsedToken = jwt.verify(token, process.env.SECRET);
+    console.log({parsedToken});
     const user = this.findOne({ username: parsedToken.username })
     if (user) { return user; }
     throw new Error("User Not Found");
