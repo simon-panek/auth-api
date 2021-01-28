@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-const todoSchema = mongoose.Schema({
+const storeSchema = mongoose.Schema({
   name: { type: String, required: true },
   category: { type: String },
   price: { type: Number },
@@ -12,6 +12,6 @@ const todoSchema = mongoose.Schema({
   quantityInCart: { type: Number },
 });
 
-const todoModel = mongoose.model('todo', todoSchema);
+const storeModel = mongoose.model('todo', storeSchema);
 
-module.exports = todoModel;
+module.exports = storeModel;
