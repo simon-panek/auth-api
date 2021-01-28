@@ -12,6 +12,6 @@ const storeSchema = mongoose.Schema({
   quantityInCart: { type: Number },
 });
 
-const storeModel = mongoose.model('todo', storeSchema);
+const storeModel = mongoose.model('store', storeSchema);
 
 module.exports = storeModel;
